@@ -1,0 +1,15 @@
+# Ignorar ambiente virtual
+.venv/
+
+# Ignorar configurações sensíveis
+.env
+
+# Arquivos de cache e logs
+__pycache__/
+*.log
+
+# Arquivos do VS Code (se usar)
+.vscode/
+
+# Arquivos do Jupyter Notebook (se usar)
+.ipynb_checkpoints/
