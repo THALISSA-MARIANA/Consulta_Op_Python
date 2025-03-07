@@ -1,15 +1,18 @@
-import streamlit as st
-import pyodbc
-import pandas as pd
+import os
+from dotenv import load_dotenv
 
-# Configuração da conexão com o SQL Server
+# Carregar as variáveis do arquivo .env
+load_dotenv()
+
 def connect_to_sql_server():
-    server = "172.20.21.2"  # Substitua pelo nome do servidor
-    database = "Protheus_Pro"  # Substitua pelo nome do banco de dados
-    username = "sa"  # Substitua pelo nome de usuário
-    password = "D3lta$ql"  # Substitua pela senha
+    server = os.getenv("DB_SERVER")
+    database = os.getenv("DB_DATABASE")
+    username = os.getenv("DB_USERNAME")
+    password = os.getenv("DB_PASSWORD")
+
     connection_string = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}"
     return pyodbc.connect(connection_string)
+
 
 # Função para buscar dados filtrados no banco de dados
 def fetch_filtered_data(op_number):
